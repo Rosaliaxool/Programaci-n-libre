@@ -1,0 +1,460 @@
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+*{
+    /*font-family  tipo de letra*/
+    font-family: "Krub", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+/*Variables (Sign In, suscribete)*/
+:root {
+    --main-color: #ff54e0;
+    --text-color: #020307;
+    --bg-color: #fff;
+}
+  
+body{
+    background: #020307;
+    color: #fff;
+}
+section{
+    padding: 50px 100px;
+} 
+/*Barra home, Movies, Coming, etc.*/
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 100px;
+    transition: .5s;
+    background-color: rgba(70, 13, 75, 0.9);
+
+}
+header.sticky{
+    background: var(--bg-color);
+    padding: 20px 12%;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+}
+
+.logo{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+.logo .bx{
+    font-size: 25px;
+    color: var(--main-color);
+}
+ 
+.navbar{
+    display: flex;
+    column-gap: 5rem;
+}
+.navbar li{
+    position: relative;
+}
+.navbar a{
+    color: var(--bg-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.navbar a::after{
+    content: '';
+    width: 100;
+    height: 2px;
+    background: var(--main-color);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: .5s all linear;
+    
+}
+.navbar a:hover::after{
+    width: 100%;
+    transform: scaleX(0);
+    
+}
+.navbar a:hover{
+    background: var(--main-color);
+    transition: .4s;
+}
+#menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+.btn{
+    padding: .7rem 1.4rem;
+    border-radius: 0.5rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 400;
+}
+/*book now*/
+.btn:hover{
+    background: #b802af;
+}
+/*recuadro de bajo de imagenes en movimiento*/
+.conatiner{
+    max-width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(45, 145, 14, 0);
+ }
+
+.conatiner img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
+.swiper-pagination-bullet{
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 0.2rem !important;
+    background: var(--bg-color) !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active{
+    width: 1.5rem !important;
+    background: var(--main-color) !important;
+}
+.home-text{
+    padding: 0 100PX;
+    color: #f8fbfd;
+    z-index: 1000;
+    font-size: 1.5rem;
+    margin-top: 350px;
+    
+}
+
+.home-text span{
+    color: var(--bg-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.home-text h1{
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--bg-color);
+}
+.home-text p{
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--bg-color);
+}
+.play{
+    position: absolute;
+    right: 4rem;
+    bottom: 10%;
+    
+}
+.play .bx{
+    background: var(--bg-color);
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 50%;
+    border: 4px solid rgb(0, 0, 0);
+    color: var(--main-color);
+}
+.play .bx:hover{    
+   background-color: var(--main-color);
+   color: var(--bg-color);
+   transition: .2s all linear;
+}
+.heading{
+    max-width: 968px;
+    margin: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--main-color);
+}
+.heading span{
+    color: var(--main-color);
+}
+
+/*Peliculas*/
+.movies-container{
+    max-width: 968px;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+
+}
+
+.movies-container .box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
+}
+.movies-container .box img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+.movies-container .box .box-img{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+.movies-container .box .box-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: .5s ease;
+}
+.movies-container .box:hover .box-img img{
+    transform: scale(1.1);   
+}
+.box h3{
+   font-size: 0.9rem;
+   font-weight: 600;   
+}
+.box span{
+    font-size: 1rem;
+}
+/*proximamente*/
+.coming-soon {
+    margin-top: 2rem;
+}
+
+.coming-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 1.5rem;
+}
+/*difuminado de las imagenes en proximamente*/
+.coming-container .box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(220, 20, 255);
+    transition: transform 0.3s ease;
+}
+
+.coming-container .box img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease; 
+}
+
+.coming-container .box:hover img {
+    transform: scale(1.1);
+}
+
+.coming-container .box:hover {
+    transform: translateY(-5px); 
+}
+
+.coming-container a:hover {
+    align-content: center; 
+}
+.swiper {
+    width: 100%;
+    height: 100%; 
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+}
+/*Novedades*/
+.newsletter {
+    background-color: #262426; 
+    color: #ffffff; 
+    padding: 60px 20px; 
+    text-align: center; 
+    border-radius: 20px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); 
+    margin: 40px 70px; 
+}
+
+
+.newsletter-container {
+    max-width: 600px;
+    margin: auto; 
+}
+
+
+.newsletter h2 {
+    font-size: 2.5rem; 
+    margin-bottom: 10px; 
+}
+
+/*color de Newsletter*/
+.newsletter span {
+    color: #d05ef9; 
+    font-weight: bold;
+}
+
+
+.newsletter p {
+    font-size: 1.1rem; 
+    margin-bottom: 20px; 
+}
+
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/*parametros */
+.newsletter input[type="email"] {
+    padding: 15px; 
+    border: none; 
+    border-radius: 50px; 
+    width: 100%; 
+    max-width: 350px; 
+    margin-right: 10px; 
+    font-size: 1rem; 
+    color: #f95e5e; 
+    background-color: #333333;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+
+.newsletter input[type="email"]:hover {
+    background-color: #444444; 
+    box-shadow: 0 0 10px rgba(234, 255, 0, 0.8); 
+    cursor: pointer; 
+}
+
+.newsletter input[type="email"] {
+    padding: 15px; 
+    border: none; 
+    border-radius: 50px; 
+    width: 100%; 
+    max-width: 350px; 
+    margin-right: 10px; 
+    font-size: 1rem; 
+    color: #ffffff; 
+    background-color: #333333;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    outline: none; 
+}
+
+/*resaltado a ingresar correo*/
+.newsletter input[type="email"]:hover {
+    background-color: #444444; 
+    box-shadow: 0 0 10px rgb(52, 2, 79); 
+    cursor: pointer; 
+}
+
+/* click  ingresa*/
+.newsletter input[type="email"]:focus {
+    background-color: #444444; 
+    box-shadow: 0 0 15px rgb(233, 10, 200); 
+}
+
+/*Footer*/
+.footer {
+    background-color: #1c1c1c; 
+    color: #ffffff; 
+    padding: 40px 20px; 
+    text-align: center; 
+}
+
+.box-container {
+    display: flex; 
+    justify-content: space-around;
+    flex-wrap: wrap; 
+    margin-bottom: 20px; 
+}
+
+.box {
+    flex: 1; 
+    min-width: 200px; 
+    margin: 10px; 
+}
+/*titulo de pelicula*/
+.box h3 {
+    font-size: 1.5rem; 
+    margin-bottom: 15px; 
+    color: #a25ef9 ; 
+}
+
+.box a {
+    display: block; 
+    color: #ffffff; 
+    text-decoration: none; 
+    margin: 5px 0; 
+    transition: color 0.3s ease; 
+}
+/*resaltado de la letra enlaces, redes sociales etc.*/
+.box a:hover {
+    color: #a25ef9 ;
+}
+
+.footer p {
+    margin-top: 20px; 
+    font-size: 0.9rem; 
+}
+
+
+.footer span {
+    font-weight: bold; 
+}
+/* Estilos para dispositivos móviles */
+@media (max-width: 568px) {
+    body {
+        font-size: 14px; /* Tamaño de fuente más pequeño para móviles */
+    }
+}
+
+/* Estilos para tabletas */
+@media (min-width: 569px) and (max-width: 768px) {
+    body {
+        font-size: 15px; /* Tamaño de fuente intermedio para tabletas */
+    }
+}
+
+/* Estilos para computadoras de escritorio */
+@media (min-width: 769px) {
+    body {
+        font-size: 16px; /* Tamaño de fuente estándar para escritorios */
+    }
+}
